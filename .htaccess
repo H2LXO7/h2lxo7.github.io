@@ -1,0 +1,33 @@
+Options +FollowSymlinks
+RewriteEngine on
+
+#RewriteCond %{HTTP_HOST} ^emrahyuksel.com.tr [NC]
+#RewriteRule ^(.*)$ http://www.emrahyuksel.com.tr/$1 [L,R=301, NC]
+
+
+ErrorDocument 404 http://localhost/pdofirma/404.php
+
+RewriteRule ^anasayfa$ index.php [NC,L]
+RewriteRule ^hakkımızda$ hakkimizda.php [NC,L]
+RewriteRule ^haberler$ haberler.php [NC,L]
+RewriteRule ^referans$ referanslar.php [NC,L]
+RewriteRule ^sikcasorulanlar$ bilgi.php [NC,L]
+RewriteRule ^iletişim$ iletisim.php [NC,L]
+#RewriteRule ^sitemap.xml$ sitemap.php [NC, L]
+
+
+RewriteRule ^haber-([0-9a-zA-Z-_]+)-([0-9]+)$ haber-detay.php?sef=$1&icerik_id=$2 [L,QSA]
+
+RewriteRule ^sayfa-([0-9a-zA-Z-_]+)-([0-9]+)$ menu-detay.php?sef=$1&menu_id=$2 [L,QSA]
+
+RewriteRule ^referans-([0-9a-zA-Z-_]+)-([0-9]+)$ referans-detay.php?sef=$1&referans_id=$2 [L,QSA]
+
+RewriteRule ^alanlar-([0-9a-zA-Z-_]+)-([0-9]+)$ alanlar-detay.php?sef=$1&alanlar_id=$2 [L,QSA]
+
+RewriteRule ^bolgeler-([0-9a-zA-Z-_]+)-([0-9]+)$ bolgeler-detay.php?sef=$1&bolgeler_id=$2 [L,QSA]
+
+RewriteRule ^arama-([0-9a-zA-Z-_]+)-([0-9]+)$ arama.php?sef=$1&icerik_id=$2 [L,QSA]
+
+#RewriteRule ^urunler/([0-9a-zA-Z-_]+)/([0-9]+)$ urunler.php?sef=$1&urun_id=$2 [L, QSA]
+#RewriteRule ^kategoriler/([0-9a-zA-Z-_]+) kategoriler.php?sef=$1 [L,QSA]
+#RewriteRule ^urun-detay/([0-9a-zA-Z-_]+)/([0-9]+)$ urun-detay.php?sef=$1&urun_id=$2 [L,QSA]
